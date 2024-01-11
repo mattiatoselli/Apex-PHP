@@ -1,3 +1,7 @@
 <?php
+use Core\Database;
 
-echo "Ciao";
+$database = new Database();
+var_dump($database->query('select * from users'));
+$database = new Database();
+var_dump($database->query('select * from users'));
