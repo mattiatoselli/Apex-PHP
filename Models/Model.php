@@ -16,9 +16,10 @@ class Model
     {
         $this->database = new DataBase();
     }
+
     /**
      * get all the records
-     * @return 
+     * @return array
      */
     public function all()
     {
@@ -28,6 +29,10 @@ class Model
         return $stdObject;
     }
 
+    /**
+     * find single record
+     * @return array
+     */
     public function find(string $id)
     {
         $table = $this->tablename;
@@ -38,6 +43,10 @@ class Model
         return $stdObject;
     }
 
+    /**
+     * find massively records by id
+     * @return array
+     */
     public function findMany(array $ids)
     {
         $table = $this->tablename;
