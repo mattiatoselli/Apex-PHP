@@ -57,7 +57,6 @@ class Router
 
         if($selectedRoute['method'] !== $method) {
             throw new \Exception("Method not allowed", 1);
-            
         }
 
         return require(base_path($selectedRoute['controller']));

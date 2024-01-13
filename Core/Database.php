@@ -10,8 +10,6 @@ class Database
     public function __construct()
     {
         if(static::$connection === null) {
-            var_dump('new instance');
-
             $config = new Configuration();
             $config = $config->get();
             $username = $config['database']['username'];
@@ -24,7 +22,7 @@ class Database
             
             $options = [
                 \PDO::ATTR_ERRMODE => \PDO::ERRMODE_EXCEPTION,
-                \PDO::ATTR_DEFAULT_FETCH_MODE => \PDO::FETCH_ASSOC
+                \PDO::ATTR_DEFAULT_FETCH_MODE => \PDO::FETCH_ASSOC,
             ];
             static::$connection = new \PDO($dsn, $username, $password, $options);
         }

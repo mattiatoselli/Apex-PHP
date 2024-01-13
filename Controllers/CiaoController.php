@@ -1,7 +1,10 @@
 <?php
-use Core\Database;
+use Core\Response;
+use Models\User;
 
-$database = new Database();
-var_dump($database->query('select * from users'));
-$database = new Database();
-var_dump($database->query('select * from users'));
+$userRepository = new User();
+$data = $userRepository->all();
+$response = new Response();
+$response->status(200);
+
+$response->jsonResponse($data);
