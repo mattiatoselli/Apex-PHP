@@ -3,7 +3,7 @@ use Core\Response;
 use Models\User;
 
 $userRepository = new User();
-$data = $userRepository->all();
+$data = $userRepository->findMany([]);
 $response = new Response();
 $response->status(200);
 

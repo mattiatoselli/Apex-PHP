@@ -37,4 +37,15 @@ class Model
         $stdObject = json_decode($jsonString);
         return $stdObject;
     }
+
+    public function findMany(array $ids)
+    {
+        $table = $this->tablename;
+        $key = $this->primaryKey;
+        $idsString = implode("','", $ids);
+        $data = $this->database->query("SELECT * FROM $table WHERE $key IN ('$idsString')");
+        $jsonString = json_encode($data);
+        $stdObject = json_decode($jsonString);
+        return $stdObject;
+    }
 }
