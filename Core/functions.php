@@ -15,5 +15,5 @@ function view(string $path, array $params=[])
 {
     //extract the params so that they are accessible in the view
     extract($params);
-    return require(base_path("view/.".$path.".php"));
+    return require(base_path("Views/".$path.".php"));
 }

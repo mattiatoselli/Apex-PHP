@@ -31,7 +31,32 @@ class Database
     public function query($queryString)
     {
         $statement = static::$connection->query($queryString);
-        $statement->execute();
-        return $statement->fetchAll();
+        return $statement;
+    }
+
+    public function prepare($queryString)
+    {
+        $statement = static::$connection->prepare($queryString);
+        return $statement;
+    }
+
+    public function lastInsertId()
+    {
+        return static::$connection->lastInsertId();
+    }
+
+    public function beginTransaction()
+    {
+        static::$connection->beginTransaction();
+    }
+
+    public function commit()
+    {
+        static::$connection->commit();
+    }
+
+    public function rollBack()
+    {
+        static::$connection->rollBack();
     }
 }

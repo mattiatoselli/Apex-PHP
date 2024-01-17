@@ -1,10 +1,11 @@
 <?php
 use Core\Response;
-use Models\User;
+use Repositories\UserRepository;
 
-$userRepository = new User();
-$data = $userRepository->findMany([]);
-$response = new Response();
+$user = UserRepository::findById(1);
+view('ciao', ["user" => $user]);
+
+/*$response = new Response();
 $response->status(200);
-
-$response->jsonResponse($data);
+$response->jsonResponse($user);
+*/
