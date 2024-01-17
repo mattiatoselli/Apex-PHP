@@ -2,9 +2,7 @@
 use Core\Response;
 use Services\UserService;
 
-$userService = new UserService();
-
-$user = $userService->find(1);
+$user = UserService::find(1);
 
 view('ciao', ["user" => $user]);
 

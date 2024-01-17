@@ -6,15 +6,18 @@ use Repositories\UserRepository;
 
 final class UserService
 {
-    protected $UserRepository;
+    protected static $UserRepository;
 
-    public function __construct()
+    protected static function initialize()
     {
-        $this->UserRepository = new UserRepository();
+        self::$UserRepository = new UserRepository();
     }
 
-    final public function find(string $id): ?User
+    public static function find(string $id): ?User
     {
-        return $this->UserRepository->find($id);
+        if(self::$UserRepository == null) {
+            self::initialize();
+        }
+        return self::$UserRepository->find($id);
     }
 }
