@@ -6,15 +6,20 @@ use Core\Database;
 
 class UserRepository implements UserRepositoryInterface
 {
-    protected const TABLENAME = "users";
-    protected const PRIMARY_KEY = "id";
+    protected $tablename = "users";
+    protected $primaryKey = "id";
+    protected $database;
 
-    public static function findById(string $id) : ?User
+    public function __construct()
     {
-        $table = self::TABLENAME;
-        $key = self::PRIMARY_KEY;
-        $database = new DataBase();
-        $statement = $database->query("SELECT * FROM $table WHERE $key = '$id'");
+        $this->database = new Database();
+    }
+
+    public function find(string $id) : ?User
+    {
+        $table = $this->tablename;
+        $key = $this->primaryKey;
+        $statement = $this->database->query("SELECT * FROM $table WHERE $key = '$id'");
         $statement->execute();
         $data = $statement->fetchAll();
         if(empty($data[0])) {

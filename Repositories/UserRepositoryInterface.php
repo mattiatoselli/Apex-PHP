@@ -1,9 +1,10 @@
 <?php
 
 namespace Repositories;
+use Repositories\RepositoryInterface;
 use Models\User;
 
-interface UserRepositoryInterface
+interface UserRepositoryInterface extends RepositoryInterface
 {
-    public static function findById(string $id): ?User;
+    public function find(string $id): ?User;
 }

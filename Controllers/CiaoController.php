@@ -1,8 +1,11 @@
 <?php
 use Core\Response;
-use Repositories\UserRepository;
+use Services\UserService;
 
-$user = UserRepository::findById(1);
+$userService = new UserService();
+
+$user = $userService->find(1);
+
 view('ciao', ["user" => $user]);
 
 /*$response = new Response();
