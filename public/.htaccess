@@ -1,4 +1,11 @@
-RewriteEngine on
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.*)$ /index.php?path=$1 [NC,L,QSA]
+ # Enable the rewriting engine
+ RewriteEngine on
+ 
+ # Check if the requested filename is not a regular file
+ RewriteCond %{REQUEST_FILENAME} !-f
+ 
+ # Check if the requested filename is not a directory
+ RewriteCond %{REQUEST_FILENAME} !-d
+ 
+ # Rewrite the URL to pass the path as a query parameter to index.php
+ RewriteRule ^(.*)$ /index.php?path=$1 [NC,L,QSA]

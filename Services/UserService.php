@@ -20,4 +20,12 @@ final class UserService
         }
         return self::$UserRepository->find($id);
     }
+
+    public static function all(): array
+    {
+        if(self::$UserRepository == null) {
+            self::initialize();
+        }
+        return self::$UserRepository->all();
+    }
 }

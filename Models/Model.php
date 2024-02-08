@@ -17,36 +17,6 @@ class Model
         $this->database = new DataBase();
     }
 
-    /**
-     * get all the records
-     * @return array
-     */
-    public function all()
-    {
-        $statement = $this->database->query('select * from '.$this->tablename);
-        $statement->execute();
-        $data = $statement->fetchAll();
-        $jsonString = json_encode($data);
-        $stdObject = json_decode($jsonString);
-        return $stdObject;
-    }
-
-    /**
-     * find single record
-     * @return array
-     */
-    public function find($id)
-    {
-        $table = $this->tablename;
-        $key = $this->primaryKey;
-        $statement = $this->database->query("SELECT * FROM $table WHERE $key = '$id'");
-        $statement->execute();
-        $data = $statement->fetchAll();
-        $jsonString = json_encode($data);
-        $stdObject = json_decode($jsonString);
-        return empty($stdObject) ? null : $stdObject[0];
-    }
-
     public function save($object)
     {
         $informations = json_encode($object);
