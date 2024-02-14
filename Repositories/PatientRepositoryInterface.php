@@ -4,7 +4,7 @@ namespace Repositories;
 use Repositories\RepositoryInterface;
 use Models\Model;
 
-interface UserRepositoryInterface extends RepositoryInterface
+interface PatientRepositoryInterface extends RepositoryInterface
 {
     
 }

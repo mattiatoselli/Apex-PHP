@@ -9,6 +9,23 @@ class Model
     protected $tablename;
     protected $primaryKey;
 
+    public function getClassName()
+    {
+        return static::class;
+    }
+
+    public function __set($name, $value)
+    {
+        $className = self::getClassName();
+        throw new \InvalidArgumentException("Property \"$name\" does not exists in Model $className.");
+    }
+
+    public function __get($name)
+    {
+        throw new \InvalidArgumentException("Property \"$name\" does not exists in Model $className.");
+    }
+
+    /*
     //variables for this class
     protected $database;
 
@@ -43,7 +60,7 @@ class Model
      * find massively records by id
      * @return array
      */
-    public function findMany(array $ids)
+    /*public function findMany(array $ids)
     {
         $table = $this->tablename;
         $key = $this->primaryKey;
@@ -78,7 +95,7 @@ class Model
      * @param array $data
      * @return bool
      */
-    private function update($object)
+    /*private function update($object)
     {
         $table = $this->tablename;
         $primaryKey = $this->primaryKey;
@@ -98,5 +115,5 @@ class Model
         $statement->execute($informations);
 
         return true;
-    }
+    }*/
 }

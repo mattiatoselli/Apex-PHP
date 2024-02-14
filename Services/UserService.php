@@ -28,4 +28,12 @@ final class UserService
         }
         return self::$UserRepository->all();
     }
+
+    public static function findMany(array $ids) : array
+    {
+        if(self::$UserRepository == null) {
+            self::initialize();
+        }
+        return self::$UserRepository->findMany($ids);
+    }
 }

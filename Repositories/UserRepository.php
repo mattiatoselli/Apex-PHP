@@ -3,7 +3,7 @@
 namespace Repositories;
 use Models\User;
 use Core\Database;
-use Traits\Queriable;
+use Traits\ModelQueriable;
 
 class UserRepository implements UserRepositoryInterface
 {
@@ -17,40 +17,6 @@ class UserRepository implements UserRepositoryInterface
         $this->database = new Database();
     }
 
-    use Queriable;
+    use ModelQueriable;
 
-    /*
-    public function all(): array
-    {
-        $result = array();
-        $statement = $this->database->query("select * from $this->tablename");
-        $statement->execute();
-        $data = $statement->fetchAll();
-        foreach ($data as $row) {
-            $record = new User();
-            foreach ($row as $column => $value) {
-                $record->$column = $value;
-            }
-            $result[] = $record;
-        }
-        return $result;
-    }
-    */
-
-    public function find(string $id) : ?User
-    {
-        $table = $this->tablename;
-        $key = $this->primaryKey;
-        $statement = $this->database->query("SELECT * FROM $table WHERE $key = '$id'");
-        $statement->execute();
-        $data = $statement->fetchAll();
-        if(empty($data[0])) {
-            return null;
-        }
-        $record = new User();
-        foreach ($data[0] as $column => $value) {
-            $record->$column = $value;
-        }
-        return $record;
-    }
 }
