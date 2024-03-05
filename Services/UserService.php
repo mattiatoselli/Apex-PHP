@@ -36,4 +36,20 @@ final class UserService
         }
         return self::$UserRepository->findMany($ids);
     }
+
+    public static function delete(string $id) : void
+    {
+        if(self::$UserRepository == null) {
+            self::initialize();
+        }
+        self::$UserRepository->delete($id);
+    }
+
+    public static function insert(User $user) : User
+    {
+        if(self::$UserRepository == null) {
+            self::initialize();
+        }
+        return self::$UserRepository->insert($user);
+    }
 }

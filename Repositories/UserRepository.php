@@ -3,7 +3,7 @@
 namespace Repositories;
 use Models\User;
 use Core\Database;
-use Traits\ModelQueriable;
+use Traits\{ModelQueriable, Deletable, Insertable};
 
 class UserRepository implements UserRepositoryInterface
 {
@@ -17,6 +17,6 @@ class UserRepository implements UserRepositoryInterface
         $this->database = new Database();
     }
 
-    use ModelQueriable;
-
+    use ModelQueriable, Deletable, Insertable;
 }
+

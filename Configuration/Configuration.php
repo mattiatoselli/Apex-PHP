@@ -13,7 +13,7 @@ class Configuration
                 "port" => getenv('DB_PORT') ?: 3306,
                 "password" => getenv('DB_PASSWORD') ?: '',
                 "host" => getenv('DB_HOST') ?: '127.0.0.1',
-                "db_name" => getenv("DB_NAME") ?: "il-mio-medico-2",
+                "db_name" => getenv("DB_NAME") ?: "ristorante",
             ]
         ];
     }
