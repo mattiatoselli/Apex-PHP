@@ -4,12 +4,12 @@ use Services\UserService;
 use Core\Password;
 use Models\User;
 $user = new User();
-
-$user->name = "test";
-$user->email = "test@test123.com";
+$user->id = 14;
+$user->name = "test_update";
+$user->email = "new_email";
 $user->password = "test";
 
-$string = UserService::insert($user);
+$string = UserService::update($user);
 
 $response = new Response();
 $response->status(200);
