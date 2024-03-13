@@ -5,7 +5,7 @@ use Models\Model;
 
 trait Updatable
 {
-    public function update(Model $model)
+    public function update(Model $model) :void
     {
         $table = $this->tablename;
         $key = $this->primaryKey;

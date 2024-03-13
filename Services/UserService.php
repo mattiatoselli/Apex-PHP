@@ -53,11 +53,11 @@ final class UserService
         return self::$UserRepository->insert($user);
     }
 
-    public static function update(User $user)
+    public static function update(User $user) : void
     {
         if(self::$UserRepository == null) {
             self::initialize();
         }
-        return self::$UserRepository->update($user);
+        self::$UserRepository->update($user);
     }
 }

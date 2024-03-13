@@ -12,6 +12,6 @@ interface UserRepositoryInterface extends RepositoryInterface
     public function find(string $value) : ?Model;
     public function findMany(array $value) : array;
     public function delete(string $id) : void;
-    public function update(Model $model);
+    public function update(Model $model) : void;
 }
 
